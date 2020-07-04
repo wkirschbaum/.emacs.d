@@ -28,8 +28,7 @@
         helm-move-to-line-cycle-in-source t
         helm-ff-search-library-in-sexp t
         helm-ff-file-name-history-use-recentf t
-        helm-echo-input-in-header-line t
-        helm-M-x-fuzzy-match t)
+        helm-echo-input-in-header-line t)
   (setq helm-buffers-fuzzy-matching t
         helm-recentf-fuzzy-match t)
   (helm-mode 1))
@@ -45,11 +44,6 @@
 
 (use-package helm-ag
   :ensure t)
-
-(use-package helm-projectile
-  :ensure t
-  :config
-  (helm-projectile-on))
 
 (use-package forge
   :ensure t)
@@ -123,6 +117,11 @@
         projectile-sort-order 'recently-active
         projectile-indexing-method 'hybrid)
   (projectile-mode +1))
+
+(use-package helm-projectile
+  :ensure t
+  :config
+  (helm-projectile-on))
 
 (use-package ibuffer
   :bind(("C-x C-b" . ibuffer))
