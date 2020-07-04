@@ -5,13 +5,6 @@
         minions-direct '(projectile-mode flycheck-mode))
   (minions-mode 1))
 
-(use-package moody
-  :ensure t
-  :config
-  (setq x-underline-at-descent-line t)
-  (moody-replace-mode-line-buffer-identification)
-  (moody-replace-vc-mode))
-
 (use-package solarized-theme
   :ensure t
   :config
