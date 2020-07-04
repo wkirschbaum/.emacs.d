@@ -4,6 +4,7 @@ var/
 elpa/
 eshell/
 org-clock-save.el
+custom.el
 places
 recentf
 .emacs.desktop
