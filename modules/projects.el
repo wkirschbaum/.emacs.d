@@ -39,6 +39,9 @@
   (global-unset-key (kbd "C-x c"))
   (global-set-key (kbd "C-c h o") 'helm-occur))
 
+(use-package helm-rg
+  :ensure t)
+
 (use-package helm-ag
   :ensure t)
 
