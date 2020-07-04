@@ -7,6 +7,8 @@
 (if (file-exists-p custom-file)
     (load custom-file))
 
+(setq auth-sources '((:source "~/Cloud/secrets/.authinfo.gpg")))
+
 (unless (package-installed-p 'use-package)
   (progn
     (package-refresh-contents)
