@@ -8,3 +8,4 @@ places
 recentf
 .emacs.desktop
 *.*~
+/projectile-bookmarks.eld

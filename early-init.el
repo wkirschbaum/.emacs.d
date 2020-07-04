@@ -24,5 +24,5 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(set-face-attribute 'default nil  :family "Source Code Pro" :height 100 :weight 'normal)
-
+;; (set-face-attribute 'default nil  :family "Source Code Pro" :height 100 :weight 'normal)
+(set-face-attribute 'default nil  :family "Hack" :height 110 :weight 'normal)
