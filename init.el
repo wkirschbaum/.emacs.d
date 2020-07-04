@@ -27,5 +27,4 @@
 (load "~/.emacs.d/modules/lang-yaml.el")
 
 ;; temp
-(find-file "~/.emacs.d/modules/projects.el")
 (add-hook 'emacs-startup-hook (lambda () (message (concat "Emacs started in" " " (emacs-init-time)))))
