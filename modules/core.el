@@ -29,4 +29,8 @@
 (setq-default display-line-numbers-widen t)
 (setq-default indent-tabs-mode nil)
 
+(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-current-absolute t)
+(global-display-line-numbers-mode t)
+
 (save-place-mode 1)
