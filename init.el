@@ -25,8 +25,10 @@
 (load "~/.emacs.d/modules/news.el")
 (load "~/.emacs.d/modules/ledger.el")
 
+(load "~/.emacs.d/modules/lang-core.el")
 (load "~/.emacs.d/modules/lang-docker.el")
 (load "~/.emacs.d/modules/lang-yaml.el")
+(load "~/.emacs.d/modules/lang-rust.el")
 
 ;; temp
 (add-hook 'emacs-startup-hook (lambda () (message (concat "Emacs started in" " " (emacs-init-time)))))

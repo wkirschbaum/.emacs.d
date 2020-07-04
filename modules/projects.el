@@ -48,6 +48,9 @@
 (use-package forge
   :ensure t)
 
+(use-package helm-system-packages
+  :ensure t)
+
 (use-package diff-hl
   :ensure t
   :hook ((prog-mode . diff-hl-mode)
