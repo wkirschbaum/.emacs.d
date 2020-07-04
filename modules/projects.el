@@ -168,5 +168,3 @@
 
 (use-package yasnippet-snippets
   :ensure t)
-
-(whk/line-rel)
