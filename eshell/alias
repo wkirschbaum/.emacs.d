@@ -1,0 +1,6 @@
+alias clear clear t
+alias be bundle exec $*
+alias ll ls -lah
+alias emacs find-file $1
+alias open find-file $1
+alias rr rails db:drop db:create db:migrate db:seed
