@@ -3,11 +3,12 @@ transient/
 var/
 elpa/
 eshell/
-org-clock-save.el
-custom.el
-places
-recentf
-.emacs.desktop
 *.*~
 /projectile-bookmarks.eld
 /forge-database.sqlite
+/tramp
+/org-clock-save.el
+/custom.el
+/places
+/recentf
+/.emacs.desktop
