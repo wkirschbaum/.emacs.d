@@ -36,7 +36,8 @@
 (use-package helm-config
   :config
   (global-set-key (kbd "C-c h") 'helm-command-prefix)
-  (global-unset-key (kbd "C-x c")))
+  (global-unset-key (kbd "C-x c"))
+  (global-set-key (kbd "C-c h o") 'helm-occur))
 
 (use-package helm-ag
   :ensure t)
