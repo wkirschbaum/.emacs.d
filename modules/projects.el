@@ -15,6 +15,37 @@
   (setq magit-repository-directories '(("~/src/" . 2))
         magit-revision-show-gravatars 'author))
 
+(use-package helm
+  :ensure t
+  :bind(("M-x" . 'helm-M-x)
+        ("C-x C-f" . 'helm-find-files)
+        ("C-x C-d" . 'helm-browse-project)
+        ("C-x b" . 'helm-mini)
+        ("M-i" . 'helm-semantic-or-imenu))
+  :config
+  (setq helm-split-window-inside-p t
+        helm-move-to-line-cycle-in-source t
+        helm-ff-search-library-in-sexp t
+        helm-ff-file-name-history-use-recentf t
+        helm-echo-input-in-header-line t
+        helm-M-x-fuzzy-match t)
+  (setq helm-buffers-fuzzy-matching t
+        helm-recentf-fuzzy-match t)
+  (helm-mode 1))
+
+(use-package helm-config
+  :config
+  (global-set-key (kbd "C-c h") 'helm-command-prefix)
+  (global-unset-key (kbd "C-x c")))
+
+(use-package helm-ag
+  :ensure t)
+
+(use-package helm-projectile
+  :ensure t
+  :config
+  (helm-projectile-on))
+
 (use-package forge
   :ensure t)
 
@@ -72,31 +103,9 @@
   :ensure t
   :commands (ag ag-regexp ag-project))
 
-(use-package counsel
-  :ensure t
-  :bind(("M-x" . counsel-M-x)
-        ("C-x C-f" . counsel-find-file)
-        ("C-c k" . counsel-ag)
-        ("M-i" . counsel-imenu)))
-
-(use-package counsel-projectile
-  :ensure t
-  :config
-  (counsel-projectile-mode))
 
 (use-package wgrep
   :ensure t)
-
-(use-package ivy
-  :ensure t
-  :bind(("C-c r" . ivy-resume))
-  :config
-  (setq ivy-count-format "(%d/%d) "
-        enable-recursive-minibuffers t
-        ivy-initial-inputs-alist nil ;; no default regex
-        ivy-use-virtual-buffers t
-        magit-completing-read-function 'ivy-completing-read)
-  (ivy-mode 1))
 
 (use-package projectile
   :ensure t
@@ -105,7 +114,7 @@
   (setq projectile-file-exists-remote-cache-expire nil
         projectile-dynamic-mode-line t
         projectile-mode-line-function '(lambda () (format " [%s]" (projectile-project-name)))
-        projectile-completion-system 'ivy
+        projectile-completion-system 'helm
         projectile-sort-order 'recently-active
         projectile-indexing-method 'hybrid)
   (projectile-mode +1))
@@ -123,23 +132,6 @@
   :ensure t
   :config
   (global-company-mode t))
-
-;;; Experimental
-;; This is suppose to make predictions better, based on statistics
-(use-package prescient
-  :ensure t
-  :config
-  (prescient-persist-mode))
-
-(use-package ivy-prescient
-  :ensure t
-  :config
-  (ivy-prescient-mode))
-
-(use-package company-prescient
-  :ensure t
-  :config
-  (company-prescient-mode))
 
 (use-package flycheck
   :ensure t
