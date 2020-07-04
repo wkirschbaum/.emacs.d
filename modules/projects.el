@@ -18,10 +18,11 @@
 (use-package helm
   :ensure t
   :bind(("M-x" . 'helm-M-x)
+        ("M-y" . 'helm-show-kill-ring)
+        ("M-i" . 'helm-semantic-or-imenu)
         ("C-x C-f" . 'helm-find-files)
         ("C-x C-d" . 'helm-browse-project)
-        ("C-x b" . 'helm-mini)
-        ("M-i" . 'helm-semantic-or-imenu))
+        ("C-x b" . 'helm-mini))
   :config
   (setq helm-split-window-inside-p t
         helm-move-to-line-cycle-in-source t
