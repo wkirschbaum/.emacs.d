@@ -13,3 +13,5 @@ eshell/
 /recentf
 /.emacs.desktop
 /.lsp-session-v1
+/projectile.cache
+/rake.cache

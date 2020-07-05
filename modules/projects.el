@@ -18,7 +18,6 @@
 (use-package helm
   :ensure t
   :bind(("M-x" . 'helm-M-x)
-        ("M-y" . 'helm-show-kill-ring)
         ("M-i" . 'helm-semantic-or-imenu)
         ("C-x C-f" . 'helm-find-files)
         ("C-x C-d" . 'helm-browse-project)
