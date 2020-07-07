@@ -7,7 +7,12 @@
 (if (file-exists-p custom-file)
     (load custom-file))
 
-(when (version< emacs-version "27.0") (package-initialize))
+
+(when
+    (version< emacs-version "27.0")
+  (progn
+    (package-initialize)
+    (load "~/.emacs.d/early-init.el")))
 
 (setq auth-sources '((:source "~/Cloud/secrets/.authinfo.gpg")))
 
