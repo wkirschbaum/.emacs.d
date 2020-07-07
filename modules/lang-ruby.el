@@ -7,7 +7,7 @@
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 (use-package projectile-rails
-  :load-path "~/src/emacs/projectile-rails/"
+  :ensure t
   :config
   (projectile-rails-global-mode))
 
