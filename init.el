@@ -7,6 +7,8 @@
 (if (file-exists-p custom-file)
     (load custom-file))
 
+(when (version< emacs-version "27.0") (package-initialize))
+
 (setq auth-sources '((:source "~/Cloud/secrets/.authinfo.gpg")))
 
 (unless (package-installed-p 'use-package)

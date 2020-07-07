@@ -7,11 +7,9 @@
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 (use-package projectile-rails
-  :ensure t
+  :load-path "~/src/emacs/projectile-rails/"
   :config
-  (projectile-rails-global-mode)
-  (unless (and (boundp 'auto-insert-alist)
-             (projectile-rails--auto-insert-setup-p current-project-cond))))
+  (projectile-rails-global-mode))
 
 (use-package rubocop :ensure t)
 (use-package feature-mode :ensure t)
