@@ -37,6 +37,11 @@
 (load "~/.emacs.d/modules/lang-yaml.el")
 (load "~/.emacs.d/modules/lang-rust.el")
 (load "~/.emacs.d/modules/lang-ruby.el")
+(load "~/.emacs.d/modules/lang-ansible.el")
+(load "~/.emacs.d/modules/lang-elixir.el")
+(load "~/.emacs.d/modules/lang-web.el")
+(load "~/.emacs.d/modules/lang-prolog.el")
+(load "~/.emacs.d/modules/smalltalk-prolog.el")
 
 ;; temp
 (add-hook 'emacs-startup-hook (lambda () (message (concat "Emacs started in" " " (emacs-init-time)))))
