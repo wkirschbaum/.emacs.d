@@ -41,7 +41,8 @@
 (load "~/.emacs.d/modules/lang-elixir.el")
 (load "~/.emacs.d/modules/lang-web.el")
 (load "~/.emacs.d/modules/lang-prolog.el")
-(load "~/.emacs.d/modules/smalltalk-prolog.el")
+(load "~/.emacs.d/modules/lang-smalltalk.el")
+(load "~/.emacs.d/modules/lang-erlang.el")
 
 ;; temp
 (add-hook 'emacs-startup-hook (lambda () (message (concat "Emacs started in" " " (emacs-init-time)))))
