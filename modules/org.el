@@ -51,3 +51,9 @@
 
 (setq org-ellipsis "↴")
 (setq org-src-tab-acts-natively t)
+
+(use-package org-roam
+  :ensure t
+  :config
+  (setq org-roam-directory "~/Cloud/org-roam")
+  (add-hook 'after-init-hook 'org-roam-mode))
