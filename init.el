@@ -1,49 +1,62 @@
+;; -*- lexical-binding: t -*-
+
 (require 'package)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
                          ("melpa" . "https://melpa.org/packages/")))
 
-(setq custom-file "~/.emacs.d/custom.el")
-(if (file-exists-p custom-file)
-    (load custom-file))
+(defun load-modules (modules-path)
+  (load (concat modules-path "core.el"))
+  (load (concat modules-path "functions.el"))
+  (load (concat modules-path "styling.el"))
+  (load (concat modules-path "projects.el"))
+  (load (concat modules-path "org.el"))
+  (load (concat modules-path "news.el"))
+  (load (concat modules-path "ledger.el"))
+  (load (concat modules-path "extras.el"))
 
+  (load (concat modules-path "lang-core.el"))
+  (load (concat modules-path "lang-docker.el"))
+  (load (concat modules-path "lang-yaml.el"))
+  (load (concat modules-path "lang-rust.el"))
+  (load (concat modules-path "lang-ruby.el"))
+  (load (concat modules-path "lang-ansible.el"))
+  (load (concat modules-path "lang-elixir.el"))
+  (load (concat modules-path "lang-web.el"))
+  (load (concat modules-path "lang-prolog.el"))
+  (load (concat modules-path "lang-smalltalk.el"))
+  (load (concat modules-path "lang-erlang.el"))
+  (load (concat modules-path "lang-javascript.el")))
 
-(when
-    (version< emacs-version "27.0")
-  (progn
-    (package-initialize)
-    (load "~/.emacs.d/early-init.el")))
+(defun setup-custom-config (config-path)
+  (setq custom-file (concat config-path "custom.el"))
+  (if (file-exists-p custom-file)
+      (load custom-file)))
 
-(setq auth-sources '((:source "~/Cloud/secrets/.authinfo.gpg")))
+(defun install-use-package ()
+  (unless (package-installed-p 'use-package)
+    (progn
+      (package-refresh-contents)
+      (package-install 'use-package)))
+  (eval-when-compile (require 'use-package)))
 
-(unless (package-installed-p 'use-package)
-  (progn
-    (package-refresh-contents)
-    (package-install 'use-package)))
+(letrec ((config-path "~/.config/emacs/")
+      (modules-path (concat config-path "modules/"))
+      (secrets-path "~/Cloud/secrets/"))
 
-(eval-when-compile
-  (require 'use-package))
+  (setup-custom-config config-path)
 
-(load "~/.emacs.d/modules/core.el")
-(load "~/.emacs.d/modules/functions.el")
-(load "~/.emacs.d/modules/styling.el")
-(load "~/.emacs.d/modules/projects.el")
-(load "~/.emacs.d/modules/org.el")
-(load "~/.emacs.d/modules/news.el")
-(load "~/.emacs.d/modules/ledger.el")
+  (when
+      (version< emacs-version "27.0")
+    (progn
+      (package-initialize)
+      (load (concat config-path "early-init.el"))))
 
-(load "~/.emacs.d/modules/lang-core.el")
-(load "~/.emacs.d/modules/lang-docker.el")
-(load "~/.emacs.d/modules/lang-yaml.el")
-(load "~/.emacs.d/modules/lang-rust.el")
-(load "~/.emacs.d/modules/lang-ruby.el")
-(load "~/.emacs.d/modules/lang-ansible.el")
-(load "~/.emacs.d/modules/lang-elixir.el")
-(load "~/.emacs.d/modules/lang-web.el")
-(load "~/.emacs.d/modules/lang-prolog.el")
-(load "~/.emacs.d/modules/lang-smalltalk.el")
-(load "~/.emacs.d/modules/lang-erlang.el")
-(load "~/.emacs.d/modules/lang-javascript.el")
+  (install-use-package)
+
+  (setq auth-sources '((:source (concat secrets-path ".authinfo.gpg"))))
+  (load-modules modules-path)
+)
 
 ;; temp
 (add-hook 'emacs-startup-hook (lambda () (message (concat "Emacs started in" " " (emacs-init-time)))))
