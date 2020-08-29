@@ -26,7 +26,8 @@
   (load (concat modules-path "lang-prolog.el"))
   (load (concat modules-path "lang-smalltalk.el"))
   (load (concat modules-path "lang-erlang.el"))
-  (load (concat modules-path "lang-javascript.el")))
+  (load (concat modules-path "lang-javascript.el"))
+  (load (concat modules-path "lang-haskell.el")))
 
 (defun setup-custom-config (config-path)
   (setq custom-file (concat config-path "custom.el"))
