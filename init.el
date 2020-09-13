@@ -27,6 +27,7 @@
   (load (concat modules-path "lang-smalltalk.el"))
   (load (concat modules-path "lang-erlang.el"))
   (load (concat modules-path "lang-javascript.el"))
+  (load (concat modules-path "lang-go.el"))
   (load (concat modules-path "lang-haskell.el")))
 
 (defun setup-custom-config (config-path)
@@ -59,5 +60,5 @@
   (load-modules modules-path)
 )
 
-;; temp
+(find-file "~/Cloud/Org/todo.org")
 (add-hook 'emacs-startup-hook (lambda () (message (concat "Emacs started in" " " (emacs-init-time)))))
