@@ -28,6 +28,7 @@
   (load (concat modules-path "lang-erlang.el"))
   (load (concat modules-path "lang-javascript.el"))
   (load (concat modules-path "lang-go.el"))
+  (load (concat modules-path "lang-terraform.el"))
   (load (concat modules-path "lang-haskell.el")))
 
 (defun setup-custom-config (config-path)
