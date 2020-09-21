@@ -90,11 +90,6 @@
   :config
   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
-(use-package which-key
-  :ensure t
-  :config
-  (which-key-mode 1))
-
 (use-package whitespace
   :hook (prog-mode . whitespace-mode)
   :config
