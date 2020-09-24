@@ -4,7 +4,10 @@
 (use-package mix
   :ensure t
   :config
-  :bind ("C-c , a" . mix-test))
+  :bind
+  ("C-c , a" . mix-test)
+  ("C-c , s" . mix-test-current-test)
+  ("C-c , v" . mix-test-current-buffer))
 
 ;; (use-package flycheck-credo
 ;;   :ensure t
