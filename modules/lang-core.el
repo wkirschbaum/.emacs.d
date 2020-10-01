@@ -13,7 +13,11 @@
     (setq lsp-file-watch-threshold 8000))
 
 ;; optionally
-(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode
+  :bind (("M-i" . lsp-ui-imenu)))
+
 ;; if you are helm user
 (use-package helm-lsp :commands helm-lsp-workspace-symbol)
 
