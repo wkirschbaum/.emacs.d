@@ -17,3 +17,6 @@ eshell/
 /rake.cache
 /bookmarks
 /url/
+/.cache/
+/eln-cache/
+/org-roam.db
