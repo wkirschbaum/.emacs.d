@@ -20,3 +20,4 @@ eshell/
 /.cache/
 /eln-cache/
 /org-roam.db
+/.dap-breakpoints
