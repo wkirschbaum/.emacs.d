@@ -1,10 +1,11 @@
-(setq js-indent-level 2)
-
 (use-package typescript-mode
   :mode (("\\.tsx\\'" . typescript-mode)
          ("\\.ts\\'" . typescript-mode)
          ("\\.js\\'" . typescript-mode))
-  :ensure t)
+  :ensure t
+  :config
+  (setq js-indent-level 2)
+  (setq typescript-indent-level 2))
 
 (use-package tide
   :ensure t)
