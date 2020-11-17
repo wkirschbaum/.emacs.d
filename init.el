@@ -14,7 +14,6 @@
   (load (concat modules-path "news.el"))
   (load (concat modules-path "ledger.el"))
   (load (concat modules-path "extras.el"))
-  (load (concat modules-path "lang-core.el"))
   (load (concat modules-path "lang-lsp.el"))
   (load (concat modules-path "lang-docker.el"))
   (load (concat modules-path "lang-yaml.el"))

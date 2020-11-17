@@ -117,7 +117,9 @@
 
 (use-package counsel
   :ensure t
-  :config (counsel-mode t))
+  :config
+  (counsel-mode t)
+  (setq ivy-initial-inputs-alist nil))
 
 (use-package counsel-projectile
   :ensure t
