@@ -40,5 +40,3 @@
         company-lsp-async t
         company-lsp-cache-candidates nil)
   (push 'company-lsp company-backends))
-
-(use-package helm-lsp :commands helm-lsp-workspace-symbol)

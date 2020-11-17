@@ -15,39 +15,9 @@
   (setq magit-repository-directories '(("~/src/" . 2))
         magit-revision-show-gravatars 'author))
 
-(use-package helm
-  :ensure t
-  :bind(("M-x" . 'helm-M-x)
-        ("M-i" . 'helm-semantic-or-imenu)
-        ("C-x C-f" . 'helm-find-files)
-        ("C-x C-d" . 'helm-browse-project)
-        ("C-x b" . 'helm-mini))
-  :config
-  (setq helm-split-window-inside-p t
-        helm-move-to-line-cycle-in-source t
-        helm-ff-search-library-in-sexp t
-        helm-ff-file-name-history-use-recentf t
-        helm-echo-input-in-header-line t)
-  (setq helm-buffers-fuzzy-matching t
-        helm-recentf-fuzzy-match t)
-  (helm-mode 1))
 
-(use-package helm-config
-  :config
-  (global-set-key (kbd "C-c h") 'helm-command-prefix)
-  (global-unset-key (kbd "C-x c"))
-  (global-set-key (kbd "C-c h o") 'helm-occur))
-
-(use-package helm-rg
-  :ensure t)
-
-(use-package helm-ag
-  :ensure t)
 
 (use-package forge
-  :ensure t)
-
-(use-package helm-system-packages
   :ensure t)
 
 (use-package diff-hl
@@ -110,15 +80,10 @@
   (setq projectile-file-exists-remote-cache-expire nil
         projectile-dynamic-mode-line t
         projectile-mode-line-function '(lambda () (format " [%s]" (projectile-project-name)))
-        projectile-completion-system 'helm
+        projectile-completion-system 'ivy
         projectile-sort-order 'recently-active
         projectile-indexing-method 'hybrid)
   (projectile-mode +1))
-
-(use-package helm-projectile
-  :ensure t
-  :config
-  (helm-projectile-on))
 
 (use-package ibuffer
   :bind(("C-x C-b" . ibuffer))
@@ -128,6 +93,38 @@
                     (ibuffer-projectile-set-filter-groups)
                     (unless (eq ibuffer-sorting-mode 'recency)
                       (ibuffer-do-sort-by-recency))))
+
+
+
+
+;; Sort commands by frequency
+(use-package smex
+  :ensure t)
+
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+  (global-set-key (kbd "C-c g") 'counsel-git)
+  (global-set-key (kbd "C-c j") 'counsel-git-grep)
+  (global-set-key (kbd "C-c k") 'counsel-ag)
+  (global-set-key (kbd "C-x l") 'counsel-locate))
+
+(use-package swiper
+  :ensure t
+  :bind ("C-s" . swiper))
+
+(use-package counsel
+  :ensure t
+  :config (counsel-mode t))
+
+(use-package counsel-projectile
+  :ensure t
+  :config
+  (counsel-projectile-mode 1))
 
 (use-package company
   :ensure t

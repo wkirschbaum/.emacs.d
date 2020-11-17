@@ -21,3 +21,4 @@ eshell/
 /eln-cache/
 /org-roam.db
 /.dap-breakpoints
+/smex-items
