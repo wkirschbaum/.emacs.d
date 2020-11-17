@@ -15,8 +15,6 @@
   (setq magit-repository-directories '(("~/src/" . 2))
         magit-revision-show-gravatars 'author))
 
-
-
 (use-package forge
   :ensure t)
 
