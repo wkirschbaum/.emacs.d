@@ -42,3 +42,15 @@
 (save-place-mode 1)
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
+
+;; don't prompt for compilation command
+;; use prefix to change command
+(setq compilation-read-command nil)
+
+
+;; ensure colors renders correctly in compilation mode
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)

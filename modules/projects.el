@@ -1,6 +1,8 @@
 (use-package exec-path-from-shell
     :ensure t
     :config
+    (exec-path-from-shell-copy-env "SERVERLESS_DATABASE_HOST")
+    (exec-path-from-shell-copy-env "SERVERLESS_DATABASE_PASSWORD")
     (exec-path-from-shell-initialize))
 
 (use-package git-timemachine
@@ -101,12 +103,6 @@
   (global-set-key (kbd "C-c k") 'counsel-ag)
   (global-set-key (kbd "C-x l") 'counsel-locate))
 
-(use-package ivy-rich
-  :ensure t
-  :config
-  (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
-  (ivy-rich-mode 1))
-
 (use-package swiper
   :ensure t
   :bind ("C-s" . swiper))
@@ -134,6 +130,16 @@
   :ensure t
   :config
   (counsel-projectile-mode 1))
+
+(use-package all-the-icons-ivy-rich
+  :ensure t
+  :init (all-the-icons-ivy-rich-mode 1))
+
+(use-package ivy-rich
+  :ensure t
+  :config
+  (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
+  (ivy-rich-mode 1))
 
 (use-package company
   :ensure t

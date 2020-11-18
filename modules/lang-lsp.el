@@ -1,9 +1,7 @@
 (use-package lsp-mode
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          (elixir-mode . lsp)
-         (typescript-mode . lsp)
-         ;; if you want which-key integration
-         (lsp-mode . lsp-enable-which-key-integration))
+         (typescript-mode . lsp))
   :commands lsp
   :init
   (add-to-list `exec-path "~/src/tools/elixir-ls/bin/")
