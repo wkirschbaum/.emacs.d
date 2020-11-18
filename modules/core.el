@@ -20,6 +20,7 @@
 (global-auto-revert-mode t) ;; Ensure Cloud files exists for this (org mode agenda)
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 
+(setq confirm-kill-emacs 'yes-or-no-p)
 (setq-default auto-revert-verbose nil)
 (setq-default indicate-empty-lines t)
 (setq-default wdired-allow-to-change-permissions t)
