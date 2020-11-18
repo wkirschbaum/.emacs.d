@@ -71,18 +71,6 @@
 (use-package wgrep
   :ensure t)
 
-(use-package projectile
-  :ensure t
-  :bind-keymap ("C-x p" . projectile-command-map)
-  :config
-  (setq projectile-file-exists-remote-cache-expire nil
-        projectile-dynamic-mode-line t
-        projectile-mode-line-function '(lambda () (format " [%s]" (projectile-project-name)))
-        projectile-completion-system 'ivy
-        projectile-sort-order 'recently-active
-        projectile-indexing-method 'hybrid)
-  (projectile-mode +1))
-
 (use-package ibuffer
   :bind(("C-x C-b" . ibuffer))
   :config
@@ -118,13 +106,25 @@
 
 (use-package counsel
   :ensure t
+  :bind("M-i" . counsel-imenu)
   :config
   (counsel-mode t)
   (setq ivy-initial-inputs-alist nil))
 
+(use-package projectile
+  :ensure t
+  :bind-keymap ("C-x p" . projectile-command-map)
+  :config
+  (setq projectile-file-exists-remote-cache-expire nil
+        projectile-dynamic-mode-line t
+        projectile-mode-line-function '(lambda () (format " [%s]" (projectile-project-name)))
+        projectile-completion-system 'ivy
+        projectile-sort-order 'recently-active
+        projectile-indexing-method 'hybrid)
+  (projectile-mode +1))
+
 (use-package counsel-projectile
   :ensure t
-  :bind("M-i" . counsel-imenu)
   :config
   (counsel-projectile-mode 1))
 
