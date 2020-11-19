@@ -46,7 +46,7 @@
 ;; don't prompt for compilation command
 ;; use prefix to change command
 (setq compilation-read-command nil)
-
+(setq compilation-always-kill t)
 
 ;; ensure colors renders correctly in compilation mode
 (require 'ansi-color)

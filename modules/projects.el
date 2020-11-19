@@ -1,9 +1,10 @@
 (use-package exec-path-from-shell
-    :ensure t
-    :config
-    (exec-path-from-shell-copy-env "SERVERLESS_DATABASE_HOST")
-    (exec-path-from-shell-copy-env "SERVERLESS_DATABASE_PASSWORD")
-    (exec-path-from-shell-initialize))
+  :ensure t
+  :config
+  (exec-path-from-shell-copy-env "SERVERLESS_DATABASE_HOST")
+  (exec-path-from-shell-copy-env "SERVERLESS_DATABASE_PASSWORD")
+  (exec-path-from-shell-copy-env "MYSQL_SOCKET")
+  (exec-path-from-shell-initialize))
 
 (use-package git-timemachine
   :ensure t
