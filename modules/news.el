@@ -10,4 +10,6 @@
           "https://emacsair.me/feed.xml"
           "https://mikrotik.com/download.rss"
           "https://www.archlinux.org/feeds/news"
+          "https://dashbit.co/feed"
+          "https://thinkingelixir.com/feed/podcast/"
           "https://www.atomicaccess.co.za/feed")))

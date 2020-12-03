@@ -106,7 +106,8 @@
 
 (use-package swiper
   :ensure t
-  :bind ("C-s" . swiper))
+  :bind ("C-s" . swiper-isearch)
+  :bind ("C-r" . swiper-isearch-backward))
 
 (use-package counsel
   :ensure t

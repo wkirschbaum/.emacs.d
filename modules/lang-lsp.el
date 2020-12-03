@@ -1,6 +1,5 @@
 (use-package lsp-mode
-  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (elixir-mode . lsp)
+  :hook ((elixir-mode . lsp)
          (typescript-mode . lsp))
   :commands lsp
   :init
@@ -20,7 +19,6 @@
           "[/\\\\]submodules$"
           )))
 
-;; optionally
 (use-package lsp-ui
   :ensure t
   :commands lsp-ui-mode

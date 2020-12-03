@@ -14,6 +14,7 @@
   (load (concat modules-path "news.el"))
   (load (concat modules-path "ledger.el"))
   (load (concat modules-path "extras.el"))
+  (load (concat modules-path "web.el"))
   (load (concat modules-path "lang-lsp.el"))
   (load (concat modules-path "lang-docker.el"))
   (load (concat modules-path "lang-yaml.el"))
@@ -44,8 +45,7 @@
   (eval-when-compile (require 'use-package)))
 
 (letrec ((config-path "~/.config/emacs/")
-      (modules-path (concat config-path "modules/"))
-      (secrets-path "~/Cloud/secrets/"))
+      (modules-path (concat config-path "modules/")))
 
   (setup-custom-config config-path)
 
@@ -57,9 +57,10 @@
 
   (install-use-package)
 
-  (setq auth-sources '((:source (concat secrets-path ".authinfo.gpg"))))
+  (setq auth-sources '((:source "~/Cloud/secrets/.authinfo.gpg")))
   (load-modules modules-path)
 )
 
 (find-file "~/Cloud/Org/todo.org")
 (add-hook 'emacs-startup-hook (lambda () (message (concat "Emacs started in" " " (emacs-init-time)))))
+(put 'narrow-to-region 'disabled nil)

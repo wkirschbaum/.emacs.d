@@ -22,3 +22,4 @@ eshell/
 /org-roam.db
 /.dap-breakpoints
 /smex-items
+/.cask/
