@@ -1,6 +1,8 @@
 (use-package lsp-mode
   :hook ((elixir-mode . lsp)
-         (typescript-mode . lsp))
+         (js-mode . lsp)
+         (typescript-mode . lsp)
+         (rust-mode . lsp))
   :commands lsp
   :init
   (add-to-list `exec-path "~/src/tools/elixir-ls/bin/")
@@ -9,6 +11,7 @@
   (setq lsp-auto-guess-root t
         lsp-enable-file-watchers t
         lsp-file-watch-threshold 8000
+        lsp-modeline-code-actions-enable t
         lsp-file-watch-ignored
         '("[/\\\\]\\.git$"
           "[/\\\\]\\.elixir_ls$"
@@ -24,7 +27,7 @@
   :commands lsp-ui-mode
   :config
   (setq lsp-ui-doc-enable nil
-        lsp-ui-doc-use-webkit t
+        lsp-ui-sideline-show-hover t
         lsp-ui-peek-enable nil))
 
 (use-package company-lsp
@@ -36,3 +39,6 @@
         company-lsp-async t
         company-lsp-cache-candidates nil)
   (push 'company-lsp company-backends))
+
+(use-package lsp-ivy
+  :ensure t)

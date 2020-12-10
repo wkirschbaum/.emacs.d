@@ -23,3 +23,4 @@ eshell/
 /.dap-breakpoints
 /smex-items
 /.cask/
+*.elc
