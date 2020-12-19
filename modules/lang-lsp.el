@@ -1,4 +1,5 @@
 (use-package lsp-mode
+  :ensure t
   :hook ((elixir-mode . lsp)
          (js-mode . lsp)
          (typescript-mode . lsp)

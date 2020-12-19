@@ -117,10 +117,15 @@
   (global-set-key (kbd "C-c k") 'counsel-ag)
   (global-set-key (kbd "C-x l") 'counsel-locate))
 
-(use-package swiper
-  :ensure t
-  :bind ("C-s" . swiper-isearch)
-  :bind ("C-r" . swiper-isearch-backward))
+;; Helps ivy with fuzzy searching
+(use-package flx
+  :ensure t)
+
+(use-package avy
+  :ensure t)
+
+(use-package ivy-avy
+  :ensure t)
 
 (use-package counsel
   :ensure t
@@ -195,3 +200,8 @@
 
 (use-package yasnippet-snippets
   :ensure t)
+
+(use-package smartparens
+  :ensure t
+  :config
+  (smartparens-global-mode))
