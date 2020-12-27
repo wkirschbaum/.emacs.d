@@ -18,19 +18,6 @@
   (setq magit-repository-directories '(("~/src/" . 2))
         magit-revision-show-gravatars 'author))
 
-(defadvice magit-status (around magit-fullscreen activate)
-  (window-configuration-to-register :magit-fullscreen)
-  ad-do-it
-  (delete-other-windows))
-
-(defun magit-quit-session ()
-  "Restores the previous window configuration and kills the magit buffer"
-  (interactive)
-  (kill-buffer)
-  (jump-to-register :magit-fullscreen))
-
-(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
-
 (use-package forge
   :ensure t)
 
@@ -43,8 +30,9 @@
 
 (use-package recentf
   :init
-  (setq-default recentf-max-saved-items 50)
+  (setq-default recentf-max-saved-items 200)
   (setq-default recentf-max-menu-items 50)
+  (setq-default rectenf-auto-cleanup t)
   (setq recentf-exclude '((expand-file-name package-user-dir)
                           ".cache"
                           ".cask"
@@ -52,6 +40,7 @@
                           "bookmarks"
                           "cache"
                           "ido.*"
+                          ".git/*"
                           "persp-confs"
                           "recentf"
                           "undo-tree-hist"
@@ -129,10 +118,13 @@
 
 (use-package counsel
   :ensure t
-  :bind("M-i" . counsel-imenu)
+  :init
+  :bind
+  (("M-i" . counsel-imenu))
   :config
   (counsel-mode t)
   (setq ivy-initial-inputs-alist nil))
+
 
 (use-package projectile
   :ensure t
@@ -201,7 +193,7 @@
 (use-package yasnippet-snippets
   :ensure t)
 
-(use-package smartparens
-  :ensure t
-  :config
-  (smartparens-global-mode))
+;; (use-package smartparens
+;;   :ensure t
+;;   :config
+;;   (smartparens-global-mode))
