@@ -23,6 +23,7 @@
   ;; (load (concat modules-path "lang-ruby.el"))
   (load (concat modules-path "lang-ansible.el"))
   (load (concat modules-path "lang-elixir.el"))
+  (load (concat modules-path "lang-po.el"))
   (load (concat modules-path "lang-web.el"))
   ;; (load (concat modules-path "lang-prolog.el"))
   ;; (load (concat modules-path "lang-smalltalk.el"))
