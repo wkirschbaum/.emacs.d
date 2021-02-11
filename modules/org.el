@@ -1,5 +1,4 @@
 (use-package org
-  :ensure t
   :config
   (setq org-agenda-files (file-expand-wildcards "~/Cloud/Org/*.org"))
   (setq org-directory "~/Cloud/Org/")
@@ -22,6 +21,7 @@
   (setq adaptive-fill-mode t)
   (add-hook 'text-mode-hook 'turn-on-auto-fill)
   (add-hook 'org-mode-hook 'turn-on-auto-fill)
+  (add-hook 'yaml-mode-hook 'turn-off-auto-fill)
 
   (setq org-log-done 'time)
 
@@ -40,7 +40,7 @@
 
 (use-package org-journal
   :ensure t
-  :bind ("C-c C-j" . org-journal-new-entry)
+  ;; :bind ("C-c C-j" . org-journal-new-entry)
   :config
   (setq org-journal-dir (concat org-directory "Journal/")))
 
@@ -52,8 +52,51 @@
 (setq org-ellipsis "↴")
 (setq org-src-tab-acts-natively t)
 
+(use-package which-key
+  :ensure t)
+
 (use-package org-roam
   :ensure t
+  :bind ("C-c C-j" . org-journal-new-entry)
+  :bind ("C-c M-c" . org-roam-capture)
+  :bind ("C-c r f" . org-roam-find-file)
+  :bind ("C-c r r" . org-roam)
   :config
+  (add-hook 'after-init-hook 'org-roam-mode)
+  (setq org-roam-dailies-directory "daily/")
   (setq org-roam-directory "~/Cloud/org-roam")
-  (add-hook 'after-init-hook 'org-roam-mode))
+  (setq org-roam-dailies-capture-templates
+        '(("d" "random" entry
+           #'org-roam-capture--get-point
+           "* %?"
+           :file-name "daily/%<%Y-%m-%d>"
+           :head "#+title: %<%Y-%m-%d>\n\n"
+           :olp ("Random"))
+          ("l" "Lab notes" entry
+           #'org-roam-capture--get-point
+           "* %?"
+           :file-name "daily/%<%Y-%m-%d>"
+           :head "#+title: %<%Y-%m-%d>\n"
+           :olp ("Lab notes"))
+          ("j" "journal" entry
+           #'org-roam-capture--get-point
+           "* %?"
+           :file-name "daily/%<%Y-%m-%d>"
+           :head "#+title: %<%Y-%m-%d>\n"
+           :olp ("Journal")))))
+
+
+(use-package org-roam-server
+  :ensure t
+  :config
+  (setq org-roam-server-host "127.0.0.1"
+        org-roam-server-port 8080
+        org-roam-server-authenticate nil
+        org-roam-server-export-inline-images t
+        org-roam-server-serve-files nil
+        org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
+        org-roam-server-network-poll t
+        org-roam-server-network-arrows nil
+        org-roam-server-network-label-truncate t
+        org-roam-server-network-label-truncate-length 60
+        org-roam-server-network-label-wrap-length 20))

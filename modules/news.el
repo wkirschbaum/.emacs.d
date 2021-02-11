@@ -12,4 +12,5 @@
           "https://www.archlinux.org/feeds/news"
           "https://dashbit.co/feed"
           "https://thinkingelixir.com/feed/podcast/"
-          "https://www.atomicaccess.co.za/feed")))
+          "https://www.atomicaccess.co.za/feed"
+          "https://alas.aws.amazon.com/AL2/alas.rss")))

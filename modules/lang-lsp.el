@@ -17,6 +17,7 @@
         '("[/\\\\]\\.git$"
           "[/\\\\]\\.elixir_ls$"
           "[/\\\\]_build$"
+          "[/\\\\]deps"
           "[/\\\\]assets$"
           "[/\\\\]cover$"
           "[/\\\\]node_modules$"
