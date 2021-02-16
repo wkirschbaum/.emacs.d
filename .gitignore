@@ -24,3 +24,4 @@ eshell/
 /smex-items
 /.cask/
 *.elc
+/.lsp-eslint-choices
