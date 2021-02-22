@@ -1,19 +1,16 @@
 (use-package lsp-mode
   :ensure t
   :hook ((elixir-mode . lsp)
-         (js-mode . lsp)
-         (typescript-mode . lsp)
          (rust-mode . lsp))
   :commands lsp
   :init
   (add-to-list `exec-path "~/src/tools/elixir-ls/bin/")
   :config
   (setq lsp-keymap-prefix "C-c l")
-  (setq lsp-auto-guess-root t
-        lsp-enable-file-watchers t
+  (setq lsp-enable-file-watchers t
         lsp-file-watch-threshold 8000
         lsp-modeline-code-actions-enable t
-        lsp-file-watch-ignored
+        lsp-file-watch-ignored-directories
         '("[/\\\\]\\.git$"
           "[/\\\\]\\.elixir_ls$"
           "[/\\\\]_build$"
