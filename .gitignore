@@ -25,3 +25,4 @@ eshell/
 /.cask/
 *.elc
 /.lsp-eslint-choices
+/projects

@@ -1,5 +1,7 @@
 (use-package elixir-mode
-  :ensure t)
+  :ensure t
+  :hook subword-mode
+  :hook (before-save . lsp-format-buffer))
 
 (use-package mix :ensure t)
 (use-package exunit
