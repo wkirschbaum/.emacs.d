@@ -121,4 +121,15 @@
         (message (read-string "Message: ")))
     (run-at-time time nil (lambda () (whk/notify-visual message)))))
 
+
+(defun whk/random_text (length)
+  (interactive "nlength: ")
+  (dotimes (_ length)
+    (insert (whk/random-alnum))))
+
+(defun whk/random-alnum ()
+  (let* ((alnum "abcdefghijklmnopqrstuvwxyz0123456789  ")
+         (i (% (abs (random)) (length alnum))))
+    (substring alnum i (1+ i))))
+
 ;; end here
