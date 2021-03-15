@@ -1,7 +1,8 @@
 (setq js-indent-level 2)
 
 (use-package typescript-mode
-  :mode (("\\.tsx\\'" . typescript-mode)
+  :mode (("\\.js\\'" . typescript-mode)
+         ("\\.tsx\\'" . typescript-mode)
          ("\\.ts\\'" . typescript-mode))
   :ensure t
   :config

@@ -27,7 +27,7 @@
   (load (concat modules-path "lang-tailwindcss.el"))
   ;; (load (concat modules-path "lang-prolog.el"))
   ;; (load (concat modules-path "lang-smalltalk.el"))
-  ;; (load (concat modules-path "lang-erlang.el"))
+  (load (concat modules-path "lang-erlang.el"))
   ;; (load (concat modules-path "lang-haskell.el"))
   ;; (load (concat modules-path "lang-go.el"))
   ;; (load (concat modules-path "lang-rust.el"))
@@ -64,4 +64,5 @@
   (load-modules modules-path)
 )
 
-(find-file "~/Cloud/Org/todo.org")
+(find-file "~/Cloud/notes/todo.org")
+(put 'narrow-to-region 'disabled nil)

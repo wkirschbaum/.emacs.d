@@ -20,7 +20,6 @@
 (global-auto-revert-mode t) ;; Ensure Cloud files exists for this (org mode agenda)
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 
-(setq confirm-kill-emacs 'yes-or-no-p)
 (setq-default auto-revert-verbose nil)
 (setq-default indicate-empty-lines t)
 (setq-default wdired-allow-to-change-permissions t)
@@ -32,7 +31,12 @@
 
 (setq display-line-numbers-type 'relative)
 (setq display-line-numbers-current-absolute t)
-(global-display-line-numbers-mode t)
+
+;; (global-display-line-numbers-mode t)
+(defun whk/display-line-numbers ()
+  (display-line-numbers-mode t))
+
+(add-hook 'prog-mode-hook 'whk/display-line-numbers)
 
 (global-set-key (kbd "<C-down>") 'shrink-window)
 (global-set-key (kbd "<C-up>") 'enlarge-window)
@@ -62,3 +66,4 @@
 ;; This is slower than the above, but adds colour to eshell
  (add-hook 'eshell-preoutput-filter-functions
            'ansi-color-apply)
+
