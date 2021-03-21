@@ -26,3 +26,6 @@ eshell/
 *.elc
 /.lsp-eslint-choices
 /projects
+/.org-id-locations
+/emms/
+/network-security.data

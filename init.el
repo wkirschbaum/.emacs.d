@@ -7,6 +7,7 @@
 
 (defun load-modules (modules-path)
   (load (concat modules-path "core.el"))
+  (load (concat modules-path "gnus.el"))
   (load (concat modules-path "functions.el"))
   (load (concat modules-path "styling.el"))
   (load (concat modules-path "projects.el"))
@@ -64,5 +65,4 @@
   (load-modules modules-path)
 )
 
-(find-file "~/Cloud/notes/todo.org")
 (put 'narrow-to-region 'disabled nil)

@@ -19,6 +19,7 @@
 (set-default 'cursor-in-non-selected-windows 'hollow)
 (global-auto-revert-mode t) ;; Ensure Cloud files exists for this (org mode agenda)
 (add-hook 'dired-mode-hook 'auto-revert-mode)
+(setq dired-listing-switches "-alh")
 
 (setq-default auto-revert-verbose nil)
 (setq-default indicate-empty-lines t)
@@ -58,7 +59,6 @@
   (let ((inhibit-read-only t))
     (ansi-color-apply-on-region (point-min) (point-max))))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
-
 
 ;; (add-hook 'eshell-preoutput-filter-functions
 ;;           'ansi-color-filter-apply)
