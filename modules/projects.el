@@ -71,7 +71,7 @@
 
 (use-package ag
   :ensure t
-  :commands (ag ag-regexp ag-project))
+
 
 
 (use-package wgrep
@@ -128,7 +128,7 @@
 
 (use-package projectile
   :ensure t
-  :bind-keymap ("C-x p" . projectile-command-map)
+  :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (setq projectile-file-exists-remote-cache-expire nil
         projectile-dynamic-mode-line t
