@@ -70,9 +70,7 @@
   (setq whitespace-style '(face tab-mark trailing empty)))
 
 (use-package ag
-  :ensure t
-
-
+  :ensure t)
 
 (use-package wgrep
   :ensure t)
@@ -128,7 +126,7 @@
 
 (use-package projectile
   :ensure t
-  :bind-keymap ("C-c p" . projectile-command-map)
+  :bind-keymap ("C-x p" . projectile-command-map)
   :config
   (setq projectile-file-exists-remote-cache-expire nil
         projectile-dynamic-mode-line t
